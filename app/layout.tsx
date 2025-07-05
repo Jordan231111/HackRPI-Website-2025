@@ -1,38 +1,51 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import "./globals.css";
+import ErrorBoundary from "@/components/ui/error-boundary";
+import ScrollToTop from "@/components/ui/scroll-to-top";
 
-// Create a conditional metadata object based on environment
 export const metadata: Metadata = {
-	title: "HackRPI 2025",
+	title: "HackRPI 2025 - Retro vs. Modern",
 	description:
-		"HackRPI is RPI&apos;s annual intercollegiate hackathon hosted by students for students. Get swag and free food as you compete for exciting prizes! With a broad range of workshops and mentors on-site, there's no experience necessary to attend.",
-	...(process.env.NODE_ENV !== "test" && {
-		openGraph: {
-			title: "HackRPI 2025",
-			description: "HackRPI is RPI's annual intercollegiate hackathon hosted by students for students.",
-			url: "https://hackrpi.com",
-			siteName: "HackRPI",
-			images: [
-				{
-					url: "/banner.png",
-					width: 1200,
-					height: 630,
-					alt: "HackRPI 2025 Banner",
-				},
-			],
-			locale: "en_US",
-			type: "website",
-		},
-	}),
+		"Join us for RPI's 12th annual hackathon! 24 hours of innovation, creativity, and collaboration. November 15-16, 2025 at Rensselaer Polytechnic Institute.",
+	keywords: ["hackathon", "RPI", "programming", "innovation", "technology", "retro", "modern"],
+	authors: [{ name: "HackRPI Team" }],
+	openGraph: {
+		title: "HackRPI 2025 - Retro vs. Modern",
+		description: "Join us for RPI's 12th annual hackathon! 24 hours of innovation, creativity, and collaboration.",
+		url: "https://hackrpi.com",
+		siteName: "HackRPI",
+		images: [
+			{
+				url: "/HackRPI_Logo_Yellow_Arrow.png",
+				width: 1200,
+				height: 630,
+				alt: "HackRPI 2025 - Retro vs. Modern",
+			},
+		],
+		locale: "en_US",
+		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "HackRPI 2025 - Retro vs. Modern",
+		description: "Join us for RPI's 12th annual hackathon! 24 hours of innovation, creativity, and collaboration.",
+		images: ["/HackRPI_Logo_Yellow_Arrow.png"],
+		creator: "@HackRPI",
+	},
+	viewport: "width=device-width, initial-scale=1",
+	robots: "index, follow",
 };
 
 import ClientLayout from "@/components/layout/client-layout";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="en">
-			<body>
-				<ClientLayout>{children}</ClientLayout>
+		<html lang="en" data-theme="hackrpi">
+			<body className="bg-hackrpi-dark-blue text-hackrpi-secondary-grey">
+				<ErrorBoundary>
+					<ClientLayout>{children}</ClientLayout>
+					<ScrollToTop />
+				</ErrorBoundary>
 			</body>
 		</html>
 	);
