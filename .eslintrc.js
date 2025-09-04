@@ -28,14 +28,7 @@ module.exports = {
 	},
 	plugins: ["@typescript-eslint", "react", "prettier"],
 	rules: {
-		indent: [
-			"warn",
-			"tab",
-			{
-				SwitchCase: 1,
-				ignoredNodes: ["ConditionalExpression"],
-			},
-		],
+		indent: "off",
 		quotes: ["error", "double", { allowTemplateLiterals: true }],
 		semi: ["error", "always"],
 		"@typescript-eslint/no-unused-vars": [

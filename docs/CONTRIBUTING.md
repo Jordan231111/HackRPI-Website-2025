@@ -4,14 +4,20 @@ Thank you for considering contributing to our project! We appreciate your time a
 
 ## Table of Contents
 
-- [Getting Started](#getting-started)
-- [How to Contribute](#how-to-contribute)
-- [Code Style](#code-style)
-- [Testing Guidelines](#testing-guidelines)
-- [Bug Reports](#bug-reports)
-- [Feature Requests](#feature-requests)
-- [Pull Requests](#pull-requests)
-- [License](#license)
+- [Contributing Guidelines 💻](#contributing-guidelines-)
+  - [Table of Contents](#table-of-contents)
+  - [Getting Started](#getting-started)
+    - [RCOS/HackRPI Contributors](#rcoshackrpi-contributors)
+    - [External Contributors](#external-contributors)
+  - [How to Contribute](#how-to-contribute)
+    - [Branches](#branches)
+    - [Merging Code](#merging-code)
+  - [Code Style](#code-style)
+  - [Testing Guidelines](#testing-guidelines)
+  - [Bug Reports](#bug-reports)
+  - [Feature Requests](#feature-requests)
+  - [Pull Requests](#pull-requests)
+  - [License](#license)
 
 ## Getting Started
 
@@ -54,7 +60,7 @@ Once you are satisfied with your feature and are ready to merge your changes int
 
 1. Run `npm run build` to verify that the build passes.
 1. Run `npx prettier --write .` to format your code to the same style as the rest of the repository
-1. Run `npx eslint .eslintrc.js` to run linting checks to ensure a uniform code style and catch potential bugs.
+1. Run `npm run lint --silent` to run linting checks using Next.js ESLint integration. If there are fixable issues, run `npm run lint:fix` or manually fix them if linting errors persist.
 1. Test your code thoroughly to ensure it looks and works well on mobile and on desktop.
 1. Open a pull request into the **develop** branch to get your code reviewed and merged
 
@@ -72,7 +78,7 @@ There are a few code style things to mention:
    1. If you find yourself repeating code then try to refactor it out into another function.
 1. Stick with the Provided Formatting
    1. ESLint (Linter) and Prettier (Formatter) will help you with sticking with the provided formatting.
-   1. You can run eslint with `npx eslint .eslintrc.js`
+   1. You can run ESLint with `npm run lint --silent` (or `npm run lint`). To auto-fix issues where possible, use `npm run lint:fix`.
    1. You can run prettier to format the repository with `npx prettier --write .`
    1. Both of these will run automatically when you make your pull request but its good to stick with the formatting throughout development.
 
